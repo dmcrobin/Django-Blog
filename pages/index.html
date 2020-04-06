@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block content %}
+    <style>
+        body {
+            font-family: "Dosis", sans-serif;
+            font-size: 18px;
+            background-color: black;
+        }
+        
+        .head_text {
+            color: white;
+        }
+        
+        .card {
+            box-shadow: 0 16px 48px black;
+        }
+    </style>
+
+    <header class="masthead" style="margin-top: 70px;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h3 class=" site-heading my-4 mt-3 text-white"> CYK Technologies - Next Generation.</h3>
+                        <p class="text-light"> All The Documentation plus Research Articles.
+                        <br>
+                        "Be The Endgame Of AI"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr style="color: white; background-color: white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3 left">
+                {% for post in object_list %}
+                <div class="card mb-4 bg-dark text-white">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">Published : {{ post.post_date}} </p>
+                        <div class="card-text">{{post.description|slice:":200" }}</div>
+                        <a href="{% url 'post_detail' post.slug  %}" style="margin:16px;" class="btn btn-primary">DIKHAO</a>
+                        <a href="{% url 'del_post' post.slug  %}" style="margin:16px;" class="btn btn-danger">HATAO</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{%endblock%}

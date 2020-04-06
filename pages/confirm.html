@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'home' %}" style="margin:16px;" class="btn btn-light">HOME</a>
+<div class="container">
+    <form method="POST" class="text-white text-center">
+        {% csrf_token %}
+        <p>ARE YOU SURE YOU WANT TO DELETE THIS POST?</p>
+        <button type="submit" class="save btn btn-default btn-primary">CONFIRM</button>
+        <a href="{% url 'home' %}" style="margin:16px;" class="btn btn-danger">CANCEL</a>
+    </form>
+</div>
+
+{% endblock content %}

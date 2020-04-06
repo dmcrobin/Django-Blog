@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{{ form.media }}
+{% block content %}
+    <style>
+        input {
+            width: 70%;
+            height: 50px;
+            font-size: 35px;
+            size: 35px;
+        }
+    </style>
+    <br>
+    <div class="text-white">
+        <h2 class="text-center">EDIT POST</h2>
+        <span style="margin: 20px;">STATUS : <button class="btn btn-default btn-success">PUBLISHED</button></span>
+        <br>
+        <form enctype="multipart/form-data" method="POST" class="text-center">
+            {% csrf_token %}
+            <div style="margin: 20px;"> Title : <span style="width:100px;">{{ form.title }}</span> </div>
+            <div style="margin: 20px; margin-left:-28px;"> Description : <span style="width:100px;">{{ form.description }}</span> </div>
+            <div style="margin: 20px;">
+                Body : {{form.body}}
+            </div>
+            <button type="submit" class="save btn btn-default btn-success btn-lg btn-block fixed-bottom">Save</button>
+            {% comment %} <button type="submit" class="save btn btn-default btn-success">Publish</button> {% endcomment %}
+        </form>
+    </div>
+{% endblock %}

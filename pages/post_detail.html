@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div style="margin-top: 70px;"></div>
+<a href="{% url 'home' %}" style="margin:16px;" class="btn btn-light position-fixed">HOME</a>
+<a href="{% url 'edit_post' object.slug %}" style="margin:16px; margin-left: 100px;" class="btn btn-dark position-fixed">EDIT</a>
+<div class="container">
+  <div class="text-white text-capitalize" style="font-size: 22px;">
+    <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+    <span style="font-size: 15px;" class="float-right"> - {{object.description}}</span><br> 
+    <p class=" text-muted">Published : {{ object.post_date }}</p>
+    <p class="card-text ">{{ object.body | safe }}</p>
+  </div>
+</div>
+
+{% endblock content %}
